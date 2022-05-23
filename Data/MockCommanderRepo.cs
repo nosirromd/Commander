@@ -9,16 +9,16 @@ namespace Commander.Data
         {
             var commands = new List<Command>
             {
-                new Command{Id=0, HowTo="Cold shutdown", Line="shift + shutdown", Platform="Windows"},
-                new Command{Id=1, HowTo="copy a file", Line="cp file directory/", Platform="Linux"},
-                new Command{Id=2, HowTo="list all containers", Line="docker ps -a", Platform="Docker"}
+                new Command{Id=1, HowTo="Cold shutdown", Line="shift + shutdown", Platform="Windows"},
+                new Command{Id=2, HowTo="copy a file", Line="cp file directory/", Platform="Linux"},
+                new Command{Id=3, HowTo="list all containers", Line="docker ps -a", Platform="Docker"}
             };
             return commands;
         }
 
         public Command GetCommandById(int id)
         {
-            return new Command{Id=0, HowTo="Cold shutdown", Line="shift + shutdown", Platform="Windows"};
+            return new Command{Id=id, HowTo="Cold shutdown", Line="shift + shutdown", Platform="Windows"};
         }
     }
 }
