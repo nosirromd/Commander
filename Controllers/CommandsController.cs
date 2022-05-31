@@ -38,6 +38,15 @@ namespace Commander.Contollers
             else
                 return NotFound();
         }
+
+        [HttpPost]
+        public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
+        {
+            var newCommand = _mapper.Map<Command>(commandCreateDto);
+            _repository.CreateCommand(newCommand);
+            _repository.SaveChanges();
+            return Ok(newCommand);
+        }
     }
     
 }
