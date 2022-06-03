@@ -28,7 +28,7 @@ namespace Commander.Contollers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>> (commandsSet));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
             var commandItem =  _repository.GetCommandById(id);
@@ -45,7 +45,10 @@ namespace Commander.Contollers
             var newCommand = _mapper.Map<Command>(commandCreateDto);
             _repository.CreateCommand(newCommand);
             _repository.SaveChanges();
-            return Ok(newCommand);
+
+            var commandReadDto = _mapper.Map<CommandReadDto>(newCommand);
+            //return Ok(commandReadDto);
+            return CreatedAtRoute("GetCommandById", new { id = commandReadDto.Id}, commandReadDto );
         }
     }
     
