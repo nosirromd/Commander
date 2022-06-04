@@ -50,6 +50,21 @@ namespace Commander.Contollers
             //return Ok(commandReadDto);
             return CreatedAtRoute("GetCommandById", new { id = commandReadDto.Id}, commandReadDto );
         }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
+        {
+            var commandFromRepo = _repository.GetCommandById(id);
+            if (commandFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(commandUpdateDto, commandFromRepo); //overwites db obj with request obj
+            _repository.UpdateCommand(commandFromRepo); //this is redundant for SQL server DB
+            _repository.SaveChanges();
+            return NoContent();
+        }
     }
     
 }
