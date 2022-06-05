@@ -94,6 +94,19 @@ namespace Commander.Contollers
    
             return NoContent();
         }
+
+        //DELETE api.commands/id
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var commandItem = _repository.GetCommandById(id);
+            if (commandItem == null)
+                return NotFound();
+
+            _repository.DeleteCommand(commandItem);
+            _repository.SaveChanges();
+            return NoContent();
+        }
     }
     
 }
