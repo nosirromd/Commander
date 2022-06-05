@@ -5,15 +5,18 @@ In this full course, we show you how to build a full REST API using .NET Core 3.
 
 ## Description
 
-coding and extending the feature set to improve my understanding by forcing deeper engagement
+coding the feature set to improve my understanding by forcing deeper engagement
 
 ### Dependencies
 
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* Docker
-* .Net Core 6
-* Microsoft.Extensions.StackExchange.Redis
-* Redis
+* AutoMapper.Extensions.Microsoft.DependencyInjection
+* .Net Core 5
+* Microsoft.AspNetCore.JsonPatch
+* Microsoft.AspNetCore.Mvc.NewtonsoftJson
+* Microsoft.EntityFrameworkCore
+* Microsoft.EntityFrameworkCore.Design
+* Microsoft.EntityFrameworkCore.SqlServer
 
 ### Installing
 
@@ -23,7 +26,7 @@ coding and extending the feature set to improve my understanding by forcing deep
 ### Executing program
 
 * How to run the program
-* Step-by-step bullets
+* https://localhost:5001/api/commands/<id>
 ```
 code blocks for commands
 ```
@@ -39,7 +42,6 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-* DC Morrison (mods)
 * Les Jackson (original tutorial)
 
 ## Version History
