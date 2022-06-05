@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
+using Newtonsoft.Json.Serialization;
 
 namespace Commander
 {
@@ -30,8 +31,10 @@ namespace Commander
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddControllers().AddNewtonsoftJson(s => 
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()
+            );
+            services.AddSwaggerGen(c => 
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Commander", Version = "v1" });
             });
